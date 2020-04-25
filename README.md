@@ -189,14 +189,5 @@ Pour les deux tableaux qui seront présenté ont les colonnes suivantes:
 - Done: contient les tâches en attente d'approbation
 - Closed: contient les tâches terminées et approuvées
 
-## Tableau pour l'ensemble du projet
-
-![Kanban complet](./assets/kanban-complet.png)
-
-## Tableau pour le sprint 3
-
-![Kanban sprint 3](./assets/kanban-sprint3.png)
-
-
 
 
