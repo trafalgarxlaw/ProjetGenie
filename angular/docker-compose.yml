@@ -1,0 +1,13 @@
+version: '3'
+services:
+    frontend:
+        container_name: inf6150-frontend
+        build: .
+        expose:
+            - 4200
+        restart: always
+        volumes:
+            - .:/app/angular/
+            - /app/angular/node_modules
+        ports:
+            - "4200:4200"

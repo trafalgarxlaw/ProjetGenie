@@ -1,0 +1,31 @@
+<div *ngIf="isDataAvailable">
+    <div class="single-board-game">
+        <mat-card class="single-board-game-card">
+            <mat-card-header class="single-board-game-card-header">
+                <mat-card-title class="single-board-game-card-title">{{ boardGame['row_names'] }} -
+                    {{ boardGame['details.name'] }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p [innerHTML]="boardGame ['details.description']"></p>
+                <mat-chip-list class="chip-container">
+                    <mat-chip *ngIf="boardGame ['details.minplayers']"> Min player : {{ boardGame ['details.minplayers'] }} </mat-chip>
+                    <mat-chip *ngIf="boardGame ['details.maxplayers']"> Max player : {{ boardGame ['details.maxplayers'] }} </mat-chip>
+                    <mat-chip *ngIf="boardGame ['details.minplaytime']"> Min playtime : {{ boardGame ['details.minplaytime'] }} minutes</mat-chip>
+                    <mat-chip *ngIf="boardGame ['details.maxplaytime']"> Max playtime : {{ boardGame ['details.maxplaytime'] }} minutes</mat-chip>
+                    <mat-chip *ngIf="boardGame ['details.minage']"> Min age : {{ boardGame ['details.minage'] }} </mat-chip>
+                    <mat-chip *ngIf="boardGame ['details.playingtime']"> Playing time : {{ boardGame ['details.playingtime'] }} </mat-chip>
+                    <mat-chip *ngIf="boardGame ['details.yearpublished']"> Year published : {{ boardGame ['details.yearpublished'] }} </mat-chip>
+                    <mat-chip *ngIf="boardGame ['attributes.boardgamecategory']"> Category : {{ boardGame ['attributes.boardgamecategory'] }} </mat-chip>
+                    <mat-chip *ngIf="boardGame ['attributes.boardgamedesigner']"> Designer : {{ boardGame ['attributes.boardgamedesigner'] }} </mat-chip>
+                    <mat-chip *ngIf="boardGame ['attributes.boardgamemechanic']"> Mechanic : {{ boardGame ['attributes.boardgamemechanic'] }} </mat-chip>
+                    <mat-chip *ngIf="boardGame ['attributes.boardgamepublisher']">
+                        <span>Publisher : {{ boardGame['attributes.boardgamepublisher'].split(",")[0] }}</span>
+                        <span *ngFor="let publisher of boardGame['attributes.boardgamepublisher'].split(',').splice(1)">
+                            -
+                            {{ publisher }}</span>
+                    </mat-chip>
+                </mat-chip-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+.navbar-button {
+    padding: 0 5px;
+    margin: 0 5px;
+}
+
+.navbar-spacer {
+    flex: 1 1 auto;
+}
+  
+.search-bar {
+    min-width: 100px;
+    max-width: 280px;
+    width: 100%;
+}
+
+.search-bar-input {
+    width: 100%;
+    background-color: white;
+    outline: none;
+    border-radius: 2px;
+    border: none;
+    padding: 6px;
+}

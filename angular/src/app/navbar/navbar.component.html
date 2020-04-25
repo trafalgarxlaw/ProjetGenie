@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-button (click)="goHome()" routerLinkActive="router-link-active">INF6190</button>
+        <span class="navbar-spacer"></span>
+        <form [formGroup]="searchForm" class="search-bar" (ngSubmit)="sendSearch()">
+            <input class="search-bar-input" placeholder="Search by title" formControlName="search">
+        </form>
+        <span class="navbar-spacer"></span>
+        <button mat-button matTooltip="Feeling lucky" class="navbar-button" (click)="goToRandomUrl()" routerLinkActive="router-link-active"><i class="fas fa-dice-three"></i></button>
+        <button mat-button matTooltip="Advance search" class="navbar-button" [routerLink]="['/detailledSearch']" routerLinkActive="router-link-active"><mat-icon>search</mat-icon></button>
+    </mat-toolbar-row>
+</mat-toolbar>

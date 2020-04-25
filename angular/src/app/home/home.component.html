@@ -1,0 +1,41 @@
+<div *ngIf="isDataAvailable">
+    <div class="home" *ngFor="let boardGame of displayedGameList">
+        <mat-card class="home-card">
+            <mat-card-header class="home-card-header">
+                <mat-chip-list>
+                    <div mat-card-avatar><i class="fas fa-angle-double-right"></i></div>
+                    <mat-chip color="primary" class="home-card-title" selected matTooltip="More info"
+                        [routerLink]="['/boardGame', boardGame['row_names']]">
+                        {{ boardGame['details.name'] }} ({{ boardGame ['details.yearpublished'] }})
+                    </mat-chip>
+                </mat-chip-list>
+            </mat-card-header>
+            <mat-card-content class="home-additional-info">
+                <i class="fas fa-user-friends"></i>
+                <span *ngIf="boardGame ['details.minplayers'] != 0 && boardGame ['details.maxplayers'] != 0">
+                        {{ boardGame ['details.minplayers'] }} to {{ boardGame ['details.maxplayers'] }} players
+                </span>
+                <span *ngIf="boardGame ['details.minplayers'] == 0 && boardGame ['details.maxplayers'] != 0">
+                        {{ boardGame ['details.maxplayers'] }} players
+                </span>
+                <span *ngIf="boardGame ['details.maxplayers'] == 0 && boardGame ['details.minplayers'] != 0">
+                        {{ boardGame ['details.minplayers'] }} players
+                </span>
+                <span *ngIf="boardGame ['details.maxplayers'] == 0 && boardGame ['details.minplayers'] == 0">
+                    No information
+                </span>
+                <span *ngIf="boardGame ['details.playingtime'] != 0">
+                        <i class="far fa-clock"></i>
+                        {{ boardGame ['details.playingtime'] }} minutes
+                </span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+        (page)="pageEvent = getServerData($event)">
+    </mat-paginator>
+</div>
+
+<div *ngIf="!isDataAvailable">
+    <app-page-not-found></app-page-not-found>
+</div>

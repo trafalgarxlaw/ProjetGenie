@@ -1,0 +1,12 @@
+version: '3'
+services:
+    backend:
+        container_name: inf6150-backend
+        build: .
+        expose: 
+            - 5000
+        restart: always
+        volumes:
+            - ./:/app/flask/
+        ports:
+            - "5000:5000"

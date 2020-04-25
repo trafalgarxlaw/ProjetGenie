@@ -1,0 +1,45 @@
+.home {
+    margin: 25px 50px;
+    min-width: 100px;
+}
+
+.mat-flat-button {
+    font-size: x-large;
+}
+
+.home-card {
+    margin: 25px auto;
+}
+
+.fa-angle-double-right {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: x-large;
+}
+
+.home-card-header {
+    align-items: center !important;
+    margin-bottom: 5px;
+}
+
+.home-card-header > ::ng-deep .mat-card-header-text {
+    display: none;
+} 
+
+.home-card-title {
+    margin: 0 !important;
+
+}
+
+::ng-deep .mat-paginator-container {
+    margin: 0 25px;
+}
+
+.home-additional-info {
+    margin: 0 7px;
+    color: grey;
+}

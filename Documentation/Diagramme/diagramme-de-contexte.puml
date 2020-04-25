@@ -1,0 +1,6 @@
+@startuml
+
+rectangle "Grow your budget" as Software
+user -> Software
+
+@enduml

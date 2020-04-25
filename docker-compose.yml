@@ -1,0 +1,41 @@
+version: '3'
+services:
+    backend:
+        container_name: inf6150-backend-linked
+        build: ./flask
+        expose: 
+            - 5000
+        networks:
+            inf6150:
+                ipv4_address: 128.0.0.20
+        restart: always
+        volumes:
+            - ./flask/:/app/flask/
+        ports:
+            - "5000:5000"
+
+    frontend:
+        container_name: inf6150-frontend-linked
+        build: ./angular
+        expose:
+            - 4200
+        networks:
+            inf6150:
+                ipv4_address: 128.0.0.10
+        restart: always
+        volumes:
+            - ./angular/:/app/angular/
+            - /app/angular/node_modules
+        ports:
+            - "4200:4200"
+
+networks:
+    inf6150:
+        # use the bridge driver, but enable IPv6
+        driver: bridge
+        driver_opts:
+            com.docker.network.enable_ipv6: "true"
+        ipam:
+            driver: default
+            config:
+                - subnet: 128.0.0.0/24
